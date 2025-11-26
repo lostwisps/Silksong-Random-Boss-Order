@@ -1,0 +1,260 @@
+[gd_scene load_steps=3 format=3 uid="uid://br0ngs82iy12i"]
+
+[ext_resource type="Script" uid="uid://enfuia4iy0jw" path="res://main/main.gd" id="1_guq4v"]
+
+[sub_resource type="FontFile" id="FontFile_1jkl7"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+
+[node name="parentUI" type="Control" groups=["main_menu"]]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_guq4v")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="mainMenu" type="MarginContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/mainMenu"]
+layout_mode = 2
+
+[node name="controlButtons" type="HBoxContainer" parent="Panel/mainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="randoButton" type="Button" parent="Panel/mainMenu/VBoxContainer/controlButtons"]
+layout_mode = 2
+text = "Randomize"
+
+[node name="chooseNext" type="Button" parent="Panel/mainMenu/VBoxContainer/controlButtons"]
+visible = false
+layout_mode = 2
+text = "Choose Next"
+
+[node name="settingsButton" type="Button" parent="Panel/mainMenu/VBoxContainer/controlButtons"]
+layout_mode = 2
+text = "Settings"
+
+[node name="restartButton" type="Button" parent="Panel/mainMenu/VBoxContainer/controlButtons"]
+layout_mode = 2
+text = "Restart"
+
+[node name="currentDisplay" type="HBoxContainer" parent="Panel/mainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="prevButton" type="Button" parent="Panel/mainMenu/VBoxContainer/currentDisplay"]
+layout_mode = 2
+text = "< Prev"
+
+[node name="displayedBoss" type="Label" parent="Panel/mainMenu/VBoxContainer/currentDisplay"]
+custom_minimum_size = Vector2(275, 0)
+layout_mode = 2
+text = "[Dynamic]"
+horizontal_alignment = 1
+
+[node name="nextButton" type="Button" parent="Panel/mainMenu/VBoxContainer/currentDisplay"]
+layout_mode = 2
+text = "Next >"
+
+[node name="informationDisplay" type="HBoxContainer" parent="Panel/mainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Panel/mainMenu/VBoxContainer/informationDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="fullOrderList" type="Label" parent="Panel/mainMenu/VBoxContainer/informationDisplay/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "[Dynamic]"
+horizontal_alignment = 1
+
+[node name="ScrollContainer2" type="ScrollContainer" parent="Panel/mainMenu/VBoxContainer/informationDisplay"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="possibleNextList" type="Label" parent="Panel/mainMenu/VBoxContainer/informationDisplay/ScrollContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+text = "[Dynamic]"
+horizontal_alignment = 1
+
+[node name="betaWarningLabel" type="Label" parent="Panel/mainMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "This programs logic is not complete, check the post in #silk-resources for more information"
+horizontal_alignment = 1
+
+[node name="settingsMenu" type="MarginContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/settingsMenu"]
+layout_mode = 2
+
+[node name="topBanner" type="HBoxContainer" parent="Panel/settingsMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+
+[node name="spacer" type="Control" parent="Panel/settingsMenu/VBoxContainer/topBanner"]
+custom_minimum_size = Vector2(45, 0)
+layout_mode = 2
+
+[node name="settingsHeader" type="Label" parent="Panel/settingsMenu/VBoxContainer/topBanner"]
+layout_mode = 2
+size_flags_horizontal = 6
+text = "Settings"
+
+[node name="backButton" type="Button" parent="Panel/settingsMenu/VBoxContainer/topBanner"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Back"
+
+[node name="randomizeSettings" type="HBoxContainer" parent="Panel/settingsMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="seedOptions" type="GridContainer" parent="Panel/settingsMenu/VBoxContainer/randomizeSettings"]
+layout_mode = 2
+columns = 2
+
+[node name="seedStaticLbl" type="Label" parent="Panel/settingsMenu/VBoxContainer/randomizeSettings/seedOptions"]
+layout_mode = 2
+text = "Seed Id:"
+horizontal_alignment = 1
+
+[node name="seedDynamicLbl" type="Label" parent="Panel/settingsMenu/VBoxContainer/randomizeSettings/seedOptions"]
+layout_mode = 2
+text = "[Dynamic]"
+horizontal_alignment = 1
+
+[node name="enterSeedLbl" type="LineEdit" parent="Panel/settingsMenu/VBoxContainer/randomizeSettings/seedOptions"]
+custom_minimum_size = Vector2(135, 0)
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_1jkl7")
+placeholder_text = "Enter Seed"
+alignment = 1
+max_length = 12
+
+[node name="randomSeedBtn" type="Button" parent="Panel/settingsMenu/VBoxContainer/randomizeSettings/seedOptions"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+text = "Random Seed"
+
+[node name="allAtOnce" type="CheckBox" parent="Panel/settingsMenu/VBoxContainer/randomizeSettings"]
+layout_mode = 2
+text = "All at Once"
+
+[node name="oneAtATime" type="CheckBox" parent="Panel/settingsMenu/VBoxContainer/randomizeSettings"]
+layout_mode = 2
+text = "One at a Time"
+
+[node name="otherSettings" type="HBoxContainer" parent="Panel/settingsMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="doubleGMS" type="CheckBox" parent="Panel/settingsMenu/VBoxContainer/otherSettings"]
+layout_mode = 2
+text = "GMS before S&S"
+
+[node name="blackThreadBosses" type="CheckBox" parent="Panel/settingsMenu/VBoxContainer/otherSettings"]
+layout_mode = 2
+text = "Black Thread"
+
+[node name="checkDocksFirst" type="CheckBox" parent="Panel/settingsMenu/VBoxContainer/otherSettings"]
+visible = false
+layout_mode = 2
+text = "Alternate Drifters route"
+
+[node name="checkMoorwing" type="CheckBox" parent="Panel/settingsMenu/VBoxContainer/otherSettings"]
+visible = false
+layout_mode = 2
+text = "Moorwing Original Location"
+
+[node name="actLimiters" type="HBoxContainer" parent="Panel/settingsMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="actOneLimit" type="CheckBox" parent="Panel/settingsMenu/VBoxContainer/actLimiters"]
+layout_mode = 2
+text = "Act 1 Limit"
+
+[node name="actTwoLimit" type="CheckBox" parent="Panel/settingsMenu/VBoxContainer/actLimiters"]
+layout_mode = 2
+text = "Act 2 Limit"
+
+[node name="chooseNextMenu" type="MarginContainer" parent="Panel"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/chooseNextMenu"]
+custom_minimum_size = Vector2(475, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Panel/chooseNextMenu/VBoxContainer"]
+layout_mode = 2
+text = "Choose the next boss:"
+horizontal_alignment = 1
+
+[node name="chooseScroll" type="ScrollContainer" parent="Panel/chooseNextMenu/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="choiceOptions" type="VBoxContainer" parent="Panel/chooseNextMenu/VBoxContainer/chooseScroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="pressed" from="Panel/mainMenu/VBoxContainer/controlButtons/randoButton" to="." method="_on_rando_button_pressed"]
+[connection signal="pressed" from="Panel/mainMenu/VBoxContainer/controlButtons/chooseNext" to="." method="_on_choose_next_pressed"]
+[connection signal="pressed" from="Panel/mainMenu/VBoxContainer/controlButtons/settingsButton" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="Panel/mainMenu/VBoxContainer/controlButtons/restartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Panel/mainMenu/VBoxContainer/currentDisplay/prevButton" to="." method="_on_prev_button_pressed"]
+[connection signal="pressed" from="Panel/mainMenu/VBoxContainer/currentDisplay/nextButton" to="." method="_on_next_button_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/topBanner/backButton" to="." method="_on_back_button_pressed"]
+[connection signal="text_submitted" from="Panel/settingsMenu/VBoxContainer/randomizeSettings/seedOptions/enterSeedLbl" to="." method="_on_enter_seed_lbl_text_submitted"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/randomizeSettings/seedOptions/randomSeedBtn" to="." method="_on_random_seed_btn_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/randomizeSettings/allAtOnce" to="." method="_on_all_at_once_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/randomizeSettings/oneAtATime" to="." method="_on_one_at_a_time_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/otherSettings/doubleGMS" to="." method="_on_double_gms_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/otherSettings/blackThreadBosses" to="." method="_on_black_thread_bosses_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/otherSettings/checkDocksFirst" to="." method="_on_check_docks_first_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/otherSettings/checkMoorwing" to="." method="_on_check_moorwing_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/actLimiters/actOneLimit" to="." method="_on_act_one_limit_pressed"]
+[connection signal="pressed" from="Panel/settingsMenu/VBoxContainer/actLimiters/actTwoLimit" to="." method="_on_act_two_limit_pressed"]

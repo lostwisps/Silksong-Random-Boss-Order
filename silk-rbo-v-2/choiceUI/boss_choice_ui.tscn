@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://car3d4e45a3a0"]
+
+[ext_resource type="Script" uid="uid://dwiq0iwdnuldk" path="res://choiceUI/boss_choice_ui.gd" id="1_xmixw"]
+
+[node name="bossChoiceUI" type="PanelContainer"]
+custom_minimum_size = Vector2(445, 0)
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_xmixw")
+
+[node name="choiceName" type="Button" parent="."]
+layout_mode = 2
+text = "[Dynamic]"
+
+[connection signal="pressed" from="choiceName" to="." method="_on_choice_name_pressed"]
